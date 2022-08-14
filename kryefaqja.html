@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comforter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril Fatface">
+    <script src="https://kit.fontawesome.com/a0ff6ad7a5.js" crossorigin="anonymous"></script>
+    <link rel="icon"  href="/img/kryefaqja/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Glowy Skin | Online Shop</title>
+    <style>
+
+        
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Oswald', sans-serif;
+}
+.wrapper{
+  position: fixed;
+  top: 0;
+  /*left: -100%;*/
+  right: -100%;
+  height: 100%;
+  width: 100%;
+  background: lightseagreen;
+  /*background: linear-gradient(90deg, #f92c78, #4114a1);*/
+  /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+ /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
+  transition: all 0.6s ease-in-out;
+}
+#active:checked ~ .wrapper{
+  /*left: 0;*/
+  right:0;
+}
+.menu-btn{
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  /*left: 20px; */
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  /*color: #fff;*/
+  /*background: linear-gradient(90deg, #f92c78, #4114a1);*/
+  /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+ /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%); */
+  transition: all 0.3s ease-in-out;
+}
+.menu-btn span,
+.menu-btn:before,
+.menu-btn:after{
+	content: "";
+	position: absolute;
+	top: calc(50% - 1px);
+	left: 30%;
+	width: 40%;
+	border-bottom: 2px solid #000;
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.menu-btn:before{
+  transform: translateY(-8px);
+}
+.menu-btn:after{
+  transform: translateY(8px);
+}
+
+
+.close {
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	transition: background .6s;
+}
+
+/* closing animation */
+#active:checked + .menu-btn span {
+	transform: scaleX(0);
+}
+#active:checked + .menu-btn:before {
+	transform: rotate(45deg);
+  border-color: #fff;
+}
+#active:checked + .menu-btn:after {
+	transform: rotate(-45deg);
+  border-color: #fff;
+}
+.wrapper ul{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+.wrapper ul li{
+  height: 10%;
+  margin: 15px 0;
+}
+.wrapper ul li a{
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px 30px;
+  color: #fff;
+  border-radius: 50px;
+  position: absolute;
+  line-height: 50px;
+  margin: 5px 30px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrapper ul li a:after{
+  position: absolute;
+  content: "";
+  background: #fff;
+   /*background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);*/
+  /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+  transform: scaleY(0);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+.wrapper ul li a:hover:after{
+  transform: scaleY(1);
+}
+.wrapper ul li a:hover{
+  color: purple;
+}
+input[type="checkbox"]{
+  display: none;
+}
+
+
+
+#active:checked ~ .wrapper ul li a{
+  opacity: 1;
+}
+.wrapper ul li a{
+  transition: opacity 1.2s, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translateX(100px);
+}
+#active:checked ~ .wrapper ul li a{
+	transform: none;
+	transition-timing-function: ease, cubic-bezier(.1,1.3,.3,1); /* easeOutBackを緩めた感じ */
+   transition-delay: .6s;
+  transform: translateX(-100px);
+}
+    </style>
+    
+</head>
+
+
+<body>
+    <header>
+        <div class="header">
+            <div class="sides">
+              <h1 id="logo"><a href="kryefaqja.html">Glowy Skin Shop</a></h1>
+            </div>
+            <div class="sides"></div>
+            <div class="info">
+              <img style="margin-bottom:100px;" src="/img/kryefaqja/Blog Header 1200x600 px.jpeg"  alt="">
+            </div>
+          </div>
+        </div>
+        <div>
+        <input type="checkbox" id="active">
+          <label for="active" class="menu-btn"><span></span></label>
+          <label for="active" class="close"></label>
+          <div class="wrapper">
+            <ul>
+      <li><a href="kryefaqja.html">KRYEFAQJA</a></li>
+      <li><a href="dermo.html">DERMOKOZMETIKE</a></li>
+      <li><a href="blogu.html">BLOG</a></li>
+      <li><a href="shporta.html">POROSI</a></li>
+      </ul>
+      </div>
+      </div>
+    </header>
+
+    <table class="tabela3">
+        <tr>
+            <td><span id="span1">SI TE KUPTOJME LLOJIN E LEKURES?</span>  
+                <br> <br> Lloji i lëkurës përcaktohet nga niveli i hidratimit natyral të saj. Por, si të kuptojmë çfarë lëkure kemi?
+                Pastroni fytyrën me një larës të butë dhe prisni 60 minuta pa aplikuar asnjë produkt shtesë. Nëse vini re se lëkura tendoset dhe ashpërsohet, atëherë keni lekurë të thatë. Nëse vini re se lëkura yndyroset lehtë në zonën e ballit ose hundës, atëherë keni lëkurë mikse. Nëse lëkura prodhon sasi të madhe yndyre, atëherë ajo është e yndyrshme dhe nëse lëkura ka një nivel të balancuar hidratimi, lëkura juaj është normale.
+                Mund të keni dëgjuar se lëkura është akneike/sensitive, të cilat janë problematika të lëkurës dhe jo tip lëkure.</td>
+            <td id="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/vic-EMOivpA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+        </tr>
+    </table>
+</section>
+<section>
+
+
+<p class="tituj"> BLI SIPAS LEKURES</p>
+
+</section>
+<section>
+    <table>
+        <tr>
+            <th class="tablehead"><img src="/img/kryefaqja/1.png" alt=""></th>
+            <th class="tablehead"><img src="/img/kryefaqja/2.png" alt=""></th>
+            <th class="tablehead"><img src="/img/kryefaqja/3.png" alt=""></th>
+            
+        </tr>
+        <tr class="tabledata">
+            <td class="tablehead"> Lekure e Thate</td>
+            
+            <td class="tablehead">Lekure Normale/Mikse</td>
+            
+            <td class="tablehead">Lekure e Yndyrshme</td>
+            
+            
+        </tr>
+    </table>
+    
+</section>
+
+<section>
+    <p id="tituj1"> LEKURE NORMALE/ TE THATE &emsp; &emsp;&emsp;&emsp;LEKURE TE YNYRSHME AKNEIKE</p>
+</section>
+
+<section>
+    <table id="table7">
+    <tr>
+        <th><img src="/img/kryefaqja/slide0.png" alt=""></th>
+        <th><img src="/img/kryefaqja/Slide1.png" alt=""></th>
+        <th><img src="/img/kryefaqja/slide2.png" alt=""></th>
+        <th><img src="/img/kryefaqja/slide3.png" alt=""></th>
+        <th><img src="/img/kryefaqja/slide4.png" alt=""></th>
+        <th><img src="/img/kryefaqja/slide5.png" alt=""></th>
+        <th><img src="/img/kryefaqja/slide6.png" alt=""></th>
+        <th></th>
+    </tr>
+    <tr class="td2">
+        <td id="td22">Larës, hidratues dhe SPF janë tre produktet bazë për të filluar rutinën tënde.</td>
+        <td>La Roche Posay Toleraine Caring Wash 400ml</td>
+        <td> La Roche Posay Toleriane Sensitive Creme 40ml</td>
+        <td>La Roche Posay Anthelios Hydrating Cream SPF + 50ml</td>
+        <td>La Roche Posay Effaclar Purifying Foaming Gel 400ml</td>
+        <td>La Roche Posay Toleriane Sensitive Fluide 40ml</td>
+        <td>La Roche Posay Anthelios Dry Touch SPF 50+ Anti-Shine 50ml</td>
+    </tr>
+    <tr class="td3">
+        <td></td>
+        <td> Lek 2'490</td>
+        <td> Lek 2'490 </td>
+        <td> Lek 2'490 </td>
+        <td> Lek 2'490 </td>
+        <td> Lek 2'390 </td>
+        <td> Lek 2'590 </td>
+
+    </tr>
+    </table>
+</section>
+<p class="tituj"> BLI SIPAS KATEGORIVE</p>
+<section>
+    <table>
+        <tr>
+            <th id="imgth"><img src="/img/kryefaqja/dermo.png" alt=""></th>
+        </tr>
+    </table>
+</section>
+<p class="tituj"> BLI SIPAS PROBLEMATIKES</p>
+<section>
+    <table>
+        <tr>
+            <td>
+                <table class="tabela3">
+                    <td><td><span id="span1">PROBLEMATIKAT KRYESORE TE LEKURES</span>  
+                        <br> <br>Problematikat e lëkurës janë të shumta dhe personale, ju lutem mos përdorni një produkt thjeshtë sepse shoqes i funksionoi mirë. <br>
+                        Gjithsesi, ato mund ti ndajmë në 4 bashkësi: <br>
+                        
+                        1. Aknet, Yndyra dhe poret <br>
+                        2. Hiperpigmentimi <br>
+                        3. Rrudhat dhe shenja të tjera të moshës <br>
+                        4. Lëkurë sensitive ose të acaruar.</td>
+                     </tr>   
+                </table>
+            </td>
+            <td>
+                <table id="table6">
+                    <tr>
+                        <td id="td"><img src="/img/kryefaqja/problematika.png" id="img3"><br>Akne/Yndyre/Pore&nbsp;&nbsp; &nbsp;&nbsp; Hiperpigmentim &nbsp; &nbsp;  Rrudha/Shenja Moshe &nbsp;&nbsp;Acarim/Lekure Sensitive</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</section>
+
+
+<footer id="main-footer">
+    <h1 id="logo" style="text-align:center; padding-bottom: 30px;"><a href="kryefaqja.html">Glowy Skin Shop</a></h1>
+    <h2>RRETH NESH</h2><br>
+    <p>Glowy Skin ka lindur si inisiative për të ndihmuar të gjithë konsumatorët që duan të kujdesen për lëkurën e tyre. Ne ofrojmë produktet më të mira ndërkombetare dhe që vërtetë kanë efekt, por me çmime të arsyeshme dhe mbi të gjitha, shërbim me pesë yje. Kujdesi për lëkurën nuk ka pse të jetë luks. Ne angazhohemi tju ndihmojmë që të maksimizoni rezultatet me minimumin e harxhimit.</p><br>
+    <p><i class="fas fa-location-arrow"></i>&nbsp;Rruga e Elbasanit, Tirane, Shqiperi</p><br>
+    <p><i class="fas fa-phone"></i>&nbsp;Phone: +(355) 68 22 87 349</p><br>
+    <p><i class="fas fa-inbox"></i>&nbsp;info@glowyskin.com </p><br>
+    <p style="font-size: 20px;"><strong>Share/Ndaje në rrjete sociale <br> <br></strong><i class="fab fa-facebook"></i>&emsp;<i class="fab fa-twitter">&emsp;</i><i class="fab fa-instagram-square"></i>&emsp;<i class="fas fa-envelope"></i>&emsp;<i class="fab fa-pinterest"></i>&emsp;<i class="fab fa-whatsapp"></i></p><br>
+    
+    <p><strong>GLOWY SKIN SHOP </strong> &copy; 2021 CREATED BY <strong>EN STUDIO</strong> . PREMIUM E-COMMERCE SOLUTIONS.</p><br>
+  </footer>
+        
+    
+</body>
+</html>
